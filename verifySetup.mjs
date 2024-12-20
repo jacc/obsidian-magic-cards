@@ -21,6 +21,16 @@ async function verifySetup() {
     const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'));
     const packageJson = JSON.parse(await fs.readFile('package.json', 'utf8'));
 
+    // Check if using default values
+    if (manifest.id === 'obsidian-svelte5-template' &&
+        manifest.name === 'Obsidian Svelte 5 Template' &&
+        manifest.description === 'A template for building Obsidian plugins with Svelte 5' &&
+        manifest.author === 'Steven Stavrakis') {
+        console.log('\x1b[33m⚠️  Using default template values\x1b[0m');
+        console.log('\x1b[33mℹ️  Run "npm run setup" to configure your plugin with custom values\x1b[0m');
+        console.log('\x1b[33mℹ️  Or run "npm run update" to update existing configuration\x1b[0m');
+    }
+
     // Verify manifest has required fields
     const requiredFields = ['id', 'name', 'author', 'description'];
     for (const field of requiredFields) {

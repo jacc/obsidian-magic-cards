@@ -11,6 +11,7 @@
   "type": "module",
   "scripts": {
     "setup": "node setupScript.mjs",
+    "update": "node updateScript.mjs",
     "verify": "node verifySetup.mjs",
     "preinstall": "node verifySetup.mjs",
     "dev": "node verifySetup.mjs && vite build --mode development --watch",
