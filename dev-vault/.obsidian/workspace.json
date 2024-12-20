@@ -154,9 +154,11 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {},
+              "state": {
+                "file": "Welcome.md"
+              },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Welcome"
             }
           },
           {
@@ -187,7 +189,7 @@
       "obsidian-plugin-svelte-template:Sample Plugin": false
     }
   },
-  "active": "2463900452d7ebfe",
+  "active": "3a600f629cda1277",
   "lastOpenFiles": [
     "Welcome.md",
     "test-directory/File.md",

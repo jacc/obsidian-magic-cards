@@ -7,7 +7,7 @@
 </script>
 
 <div>
-    <h1 class="text-2xl text-red-700">Hello {someProp}!</h1>
+    <h1 class="text-small pb-10">Hello {someProp}!</h1>
     <h2>Local State</h2>
     {count}
     <button onclick={() => count++}>+</button>
