@@ -10,7 +10,7 @@ This template provides a modern development environment for building Obsidian pl
 - **Build System**: [Vite](https://vitejs.dev/) for fast development and optimized builds
 - **Styling**: 
   - [Tailwind CSS](https://tailwindcss.com/) v4.x beta for utility-first styling
-  - Note: Some Tailwind classes may not override Obsidian's default styles
+  - Note: Tailwind classes will NOT override Obsidian's default styles
 - **Type Safety**: Full TypeScript support with pre-configured types for Obsidian API
 - **Development Experience**:
   - Hot Module Replacement (HMR) for instant feedback
