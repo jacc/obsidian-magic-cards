@@ -69,6 +69,19 @@ async function setup() {
     await fs.writeFile('public/manifest.json', JSON.stringify(manifest, null, 2));
     s.stop('Generated manifest.json');
 
+    s.start('Renaming development plugin directory');
+    const oldPluginPath = 'dev-vault/.obsidian/plugins/dev-plugin';
+    const newPluginPath = `dev-vault/.obsidian/plugins/${npmName}`;
+    try {
+        await fs.rename(oldPluginPath, newPluginPath);
+    } catch (err) {
+        // Directory might not exist yet, which is fine
+        if (err.code !== 'ENOENT') {
+            throw err;
+        }
+    }
+    s.stop('Renamed development plugin directory');
+
     outro('Setup complete! Your plugin is ready for development.');
 }
 

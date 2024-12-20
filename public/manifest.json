@@ -1,10 +1,10 @@
 {
-	"id": "obsidian-plugin-svelte-template",
-	"name": "Obsidian Plugin Svelte Template",
-	"description": "A template for building Obsidian plugins with Svelte, tailwind included",
-	"author": "Steven Stavrakis",
-	"authorUrl": "https://github.com/StevenStavrakis",
-	"version": "0.0.1",
-	"minAppVersion": "1.0.0",
-	"isDesktopOnly": true
+  "id": "best-plugin-ever",
+  "name": "Best Plugin Ever",
+  "description": "it is what it is",
+  "author": "steve",
+  "authorUrl": "sfasdfas",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "isDesktopOnly": true
 }
