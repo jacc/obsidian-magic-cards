@@ -23,6 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 
-./dev-vault/.obsidian/plugins/dev-plugin/main.js
-./dev-vault/.obsidian/plugins/dev-plugin/manifest.json
-./dev-vault/.obsidian/plugins/dev-plugin/styles.css
+dev-vault/.obsidian/plugins/dev-plugin/*
+dev-vault/.obsidian/plugins/hot-reload/*
