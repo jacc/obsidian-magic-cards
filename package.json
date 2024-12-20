@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "setup": "node setupScript.mjs",
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite build --mode development --watch",
+    "build": "vite build --mode production",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json"
   },

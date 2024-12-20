@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+./dev-vault/.obsidian/plugins/dev-plugin/main.js
+./dev-vault/.obsidian/plugins/dev-plugin/manifest.json
+./dev-vault/.obsidian/plugins/dev-plugin/styles.css

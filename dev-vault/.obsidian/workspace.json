@@ -160,13 +160,23 @@
               "icon": "lucide-list",
               "title": "Outline of Welcome"
             }
+          },
+          {
+            "id": "3a600f629cda1277",
+            "type": "leaf",
+            "state": {
+              "type": "example",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "Example View"
+            }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -175,15 +185,16 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-plugin-svelte-template:Sample Plugin": false
     }
   },
-  "active": "841cb1a0b460f04b",
+  "active": "f28b2681b04d795e",
   "lastOpenFiles": [
+    "Welcome.md",
     "test-directory/File.md",
     "test-directory/File 2.md",
     "test-directory",
-    "svelte-en.pdf",
-    "Welcome.md"
+    "svelte-en.pdf"
   ]
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { ExampleModel } from '@modules/example/ExampleModel.svelte';
+    import { ExampleModel } from "@modules/example/ExampleModel.svelte";
     let { someProp } = $props();
 
     let count = $state(0);
@@ -7,7 +7,7 @@
 </script>
 
 <div>
-    <h1 class="text-xl">Hello {someProp}!</h1>
+    <h1 class="text-2xl text-red-100">Hello {someProp}!</h1>
     <h2>Local State</h2>
     {count}
     <button onclick={() => count++}>+</button>
