@@ -1,9 +1,10 @@
-import { defineConfig } from 'vite'
+import { defineConfig, Plugin } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath, pathToFileURL } from 'url'
 import path, { dirname } from 'path'
 import { builtinModules } from 'module'
+import fs from 'fs'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,8 +21,23 @@ export default defineConfig(({ mode }) => {
 
   const inProd = mode === 'production';
 
+  // Create a plugin that adds .hotreload file after build
+  const hotReloadPlugin: Plugin = {
+    name: 'hot-reload',
+    writeBundle: {
+      sequential: true,
+      order: 'post',
+      handler: () => {
+        if (!inProd) {
+          const hotReloadPath = path.join(PLUGIN_PATH, '.hotreload');
+          fs.writeFileSync(hotReloadPath, '');
+        }
+      }
+    }
+  };
+
   return {
-    plugins: [svelte(), tailwindcss()],
+    plugins: [svelte(), tailwindcss(), hotReloadPlugin],
     resolve: {
       alias: {
         '@modules': path.resolve(__dirname, './src/modules'),

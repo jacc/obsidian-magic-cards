@@ -1,12 +1,14 @@
 {
-  "name": "best-plugin-ever",
+  "name": "cool-plugin",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "setup": "node setupScript.mjs",
-    "dev": "vite build --mode development --watch",
-    "build": "vite build --mode production",
+    "verify": "node verifySetup.mjs",
+    "preinstall": "node verifySetup.mjs",
+    "dev": "node verifySetup.mjs && vite build --mode development --watch",
+    "build": "node verifySetup.mjs && vite build --mode production",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json"
   },
