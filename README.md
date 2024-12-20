@@ -2,6 +2,21 @@
 
 A template for creating Obsidian plugins using Svelte and TypeScript.
 
+## Features & Tech Stack
+
+This template provides a modern development environment for building Obsidian plugins:
+
+- **Frontend Framework**: [Svelte](https://svelte.dev/) for reactive UI components with minimal boilerplate
+- **Build System**: [Vite](https://vitejs.dev/) for fast development and optimized builds
+- **Styling**: 
+  - [Tailwind CSS](https://tailwindcss.com/) v4.x beta for utility-first styling
+  - Note: Some Tailwind classes may not override Obsidian's default styles
+- **Type Safety**: Full TypeScript support with pre-configured types for Obsidian API
+- **Development Experience**:
+  - Hot Module Replacement (HMR) for instant feedback
+  - Automatic plugin reloading in development vault
+  - Built-in development safeguards and verification
+
 ## Getting Started
 
 1. **Initial Setup (Required)**
@@ -64,3 +79,11 @@ npm run setup
 [VS Code](https://code.visualstudio.com/) is recommended with the following extensions:
 - [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 - [TypeScript and JavaScript Language Features](https://marketplace.visualstudio.com/items?itemName=vscode.typescript-language-features)
+
+## FAQ
+
+### Why aren't my Tailwind styles working?
+Due to the way Tailwind v4.x beta works, some Tailwind classes will work while others won't, particularly when trying to override default Obsidian styles. This is a known limitation and is being investigated for a potential fix.
+
+### Hot-reloading isn't working
+Make sure the Hot-Reload plugin is active in your Obsidian vault. This plugin is required for the development hot-reloading functionality to work properly.
