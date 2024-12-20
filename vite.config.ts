@@ -13,6 +13,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@modules': path.resolve(__dirname, './src/modules'),
-    }
+    },
+    extensions: ['.ts', '.js', '.svelte']
   }
 })
