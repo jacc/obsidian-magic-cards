@@ -45,7 +45,7 @@ This template provides a modern development environment for building Obsidian pl
    - Create the plugin directory in your development vault
    - Build your plugin in development mode
    - Watch for changes
-   - Hot reload the plugin in your development vault
+   - Hot reload the plugin in your development vault (MAKE SURE TO ACTIVATE THE HOT-RELOAD PLUGIN)
 
 3. **Production Build**
    ```bash
@@ -87,3 +87,6 @@ Due to the way Tailwind v4.x beta works, some Tailwind classes will work while o
 
 ### Hot-reloading isn't working
 Make sure the Hot-Reload plugin is active in your Obsidian vault. This plugin is required for the development hot-reloading functionality to work properly.
+
+### Something isn't allowing me to turn on my plugin
+Restart Obsidian and try activating your plugin again. There are some temporary files that can cause issues with plugin activation.
