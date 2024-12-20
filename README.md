@@ -1,0 +1,1 @@
+# obsidian-plugin-svelte-template
