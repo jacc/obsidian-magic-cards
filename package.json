@@ -1,7 +1,13 @@
 {
-  "name": "cool-plugin",
+  "name": "obsidian-svelte5-template",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "A template for building Obsidian plugins with Svelte 5",
+  "author": "Steven Stavrakis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StevenStavrakis/obsidian-plugin-svelte-template"
+  },
   "type": "module",
   "scripts": {
     "setup": "node setupScript.mjs",
