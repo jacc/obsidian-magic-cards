@@ -2,21 +2,11 @@ import "./styles.css";
 import { type PluginManifest, App, Plugin } from "obsidian";
 import type { PluginModule } from "@modules/types";
 import { CardModule } from "@modules/view/CardModule";
-import { MagicCardSettingsManager } from "./settings";
-
-interface MagicCardPluginSettings {
-  openai_key: string;
-  deepseek_key: string;
-  google_key: string;
-  model_url: string;
-}
-
-const DEFAULT_SETTINGS: Partial<MagicCardPluginSettings> = {
-  openai_key: "",
-  deepseek_key: "",
-  google_key: "",
-  model_url: "",
-};
+import {
+  MagicCardDefaultSettings,
+  MagicCardSettingsManager,
+  type MagicCardPluginSettings,
+} from "./settings";
 
 export default class MagicCardsPlugin extends Plugin {
   private modules: PluginModule[];
@@ -35,7 +25,11 @@ export default class MagicCardsPlugin extends Plugin {
   }
 
   async loadSettings() {
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    this.settings = Object.assign(
+      {},
+      MagicCardDefaultSettings,
+      await this.loadData()
+    );
   }
 
   async saveSettings() {

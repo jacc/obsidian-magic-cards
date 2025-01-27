@@ -1,17 +1,50 @@
 <script lang="ts">
     import { Notice, type App, type TFile } from 'obsidian';
     import { generateFlashcards } from '../api';
+  import type MagicCardsPlugin from 'src/main';
 
     export let app: App;
+    export let settings: MagicCardsPlugin['settings']
 
-    let selectedOption = 'deepseek-chat';
+    // These defaults are selected so that it has an autofill in the option
+    let selectedProvider = 'https://api.deepseek.com';
+    let selectedModel = 'deepseek-chat';
+
+
+    let providerOptions = [
+        { value: "https://api.deepseek.com", label: "Deepseek" },
+        { value: "https://api.openai.com", label: "OpenAI" }
+    ]
+
+    // Handle local models
+    let isAdvancedMode = settings.advanced_mode
+    if (isAdvancedMode) {
+        providerOptions = [
+            ...providerOptions,
+            { value: "local", label: "Local Model" }
+        ]
+    }
+
+    // Change API key based on the user's settings
+    let apiKey = '';
+    $: {
+        switch (selectedProvider) {
+            case 'https://api.deepseek.com':
+                apiKey = settings.deepseek_key;
+                break;
+            case 'https://api.openai.com':
+                apiKey = settings.openai_key;
+                break;
+            case 'local':
+                apiKey = '';
+                break;
+            default:
+                apiKey = '';
+        }
+    }
+
+    // Context that the user can provide
     let userContext = '';
-
-    const options = [
-        { value: 'deepseek-chat', label: 'Deepseek' },
-        { value: 'option2', label: 'Option 2' },
-        { value: 'option3', label: 'Option 3' }
-    ];
 
     let isGenerating = false;
     let generatedCards: Array<{front: string, back:string}> = [];
@@ -23,15 +56,21 @@
         try {
             const fileContent = await app.vault.read(app.workspace.getActiveFile()!);
             await generateFlashcards(
+                {
+                    apiBaseUrl: selectedProvider,
+                    apiKey: apiKey,
+                    model: selectedModel
+                },
                 fileContent, 
                 userContext,
-                (card) => {
+                (card) => { 
                     generatedCards = [...generatedCards, {
                         front: card.front,
                         back: card.back,
                     }];
                 }
             );
+            
         } catch (error) {
             console.error('Error generating flashcards:', error);
         } finally {
@@ -66,13 +105,28 @@
         
         <div class="flex items-center gap-3">
             <select 
-                bind:value={selectedOption}
+                bind:value={selectedProvider}
                 class="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
             >
-                {#each options as option}
-                    <option value={option.value}>{option.label}</option>
+                {#each providerOptions as provider}
+                    <option value={provider.value}>{provider.label}</option>
                 {/each}
             </select>
+            
+            {#if selectedProvider !== "local"}
+                <select 
+                    bind:value={selectedModel}
+                    class="px-3 py-1.5 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300"
+                >
+                    {#if selectedProvider === "https://api.deepseek.com"}
+                        <option value="deepseek-chat">Deepseek Chat</option>
+                    {/if}
+
+                    {#if selectedProvider === "https://api.openai.com"}
+                        <option value="deepseek-chat">O1</option>
+                    {/if}
+                </select>
+            {/if}
         </div>
     </div>
 
@@ -101,7 +155,7 @@
     </div>
 
     <!-- Cards section -->
-    <div class="space-y-1">
+    <div class="space-y-4">
         {#if generatedCards.length === 0 && !isGenerating}
             <div class="rounded-lg text-center text-gray-500 dark:text-gray-400">
                 Click generate to create cards with 💫 magic 🪄
@@ -110,9 +164,9 @@
 
         {#each generatedCards as card, i}
             <div class="p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
-                    <div class="space-y-6">
+                    <div class="space-y-4">
                         <p class="text-bold text-gray-700 dark:text-gray-300">{card.front}</p>
-                        <hr class="my-1 border-t border-gray-200 dark:border-gray-700" />
+                        <div class="border-t border-gray-200 dark:border-gray-700" />
                         <p class="text-gray-600 dark:text-gray-400">{card.back}</p>
                         <div class="flex gap-2">
                             <button 

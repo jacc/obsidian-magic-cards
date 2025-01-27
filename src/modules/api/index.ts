@@ -10,19 +10,24 @@ interface Flashcard {
 
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-  baseURL: "https://api.deepseek.com",
-  apiKey: "",
-  dangerouslyAllowBrowser: true,
-});
-
 export async function generateFlashcards(
+  settings: {
+    apiKey: string;
+    apiBaseUrl: string;
+    model: string;
+  },
   fileContext: string,
   userPrompt: string,
   onCardGenerated: (card: Flashcard) => void
 ): Promise<void> {
+  const openai = new OpenAI({
+    baseURL: settings.apiBaseUrl,
+    apiKey: settings.apiKey,
+    dangerouslyAllowBrowser: true,
+  });
+
   const stream = await openai.chat.completions.create({
-    model: "deepseek-chat",
+    model: settings.model,
     messages: [
       {
         role: "system",

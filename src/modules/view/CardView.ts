@@ -1,15 +1,21 @@
 import { ItemView, WorkspaceLeaf } from "obsidian";
 import Card from "./Card.svelte";
 import { mount } from "svelte";
-import type MagicCardsPlugin from "../../main";
+import type MagicCardsPlugin from "src/main";
 
 export class CardView extends ItemView {
   identifier: string;
   component!: Card;
+  plugin: MagicCardsPlugin;
 
-  constructor(leaf: WorkspaceLeaf, identifier: string) {
+  constructor(
+    leaf: WorkspaceLeaf,
+    identifier: string,
+    plugin: MagicCardsPlugin
+  ) {
     super(leaf);
     this.identifier = identifier;
+    this.plugin = plugin;
   }
 
   getViewType(): string {
@@ -25,6 +31,7 @@ export class CardView extends ItemView {
       target: this.contentEl,
       props: {
         app: this.app,
+        settings: this.plugin.settings,
       },
     }) as Card;
   }
