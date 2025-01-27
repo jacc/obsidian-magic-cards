@@ -186,6 +186,9 @@
                     <div class="border-t border-gray-200 dark:border-gray-700" />
                     <p class="text-gray-600 dark:text-gray-400">{card.back}</p>
                     <div class="flex gap-2">
+                        <span class="text-sm text-gray-500 dark:text-gray-400 self-center mr-2">
+                            {card.tokenCount ? `${card.tokenCount} tokens` : ''}
+                        </span>
                         <button 
                             class="px-3 py-1.5 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
                             on:click={() => addToNote(card.front, card.back)}

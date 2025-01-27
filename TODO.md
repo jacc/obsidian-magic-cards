@@ -3,7 +3,7 @@
 ## High Priority
 - [x] Stop generation button
 - [ ] Keyboard shortcuts
-- [ ] Add token counts to generation
+- [x] Add token counts to generation
 - [ ] Implement generation timer
 
 ## Future Features

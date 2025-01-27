@@ -6,9 +6,18 @@ interface FlashcardPrompt {
 interface Flashcard {
   front: string;
   back: string;
+  tokenCount?: number;
 }
 
 import OpenAI from "openai";
+
+// this is a rough approx
+function estimateTokenCount(text: string): number {
+  // split on spaces and punctuation
+  const words = text.split(/[\s,.!?;:'"()\[\]{}|\/\\]+/);
+  // filter out empty strings and multiply by 1.3 for a rough token estimate
+  return Math.ceil(words.filter(word => word.length > 0).length * 1.3);
+}
 
 export async function generateFlashcards(
   settings: {
@@ -38,10 +47,10 @@ export async function generateFlashcards(
       {
         role: "user",
         content: `Please create flashcards based on the following context and user requirements:
-        
+
         Context from file:
         ${fileContext}
-        
+
         User requirements:
         ${userPrompt}`,
       },
@@ -64,6 +73,7 @@ export async function generateFlashcards(
             try {
               const flashcard = JSON.parse(match);
               if (flashcard.front && flashcard.back) {
+                flashcard.tokenCount = estimateTokenCount(flashcard.front + flashcard.back);
                 onCardGenerated(flashcard);
                 // Remove the processed JSON from accumulated content
                 accumulatedContent = accumulatedContent.replace(match, "");
