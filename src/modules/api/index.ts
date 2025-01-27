@@ -18,7 +18,8 @@ export async function generateFlashcards(
   },
   fileContext: string,
   userPrompt: string,
-  onCardGenerated: (card: Flashcard) => void
+  onCardGenerated: (card: Flashcard) => void,
+  signal?: AbortSignal,
 ): Promise<void> {
   const openai = new OpenAI({
     baseURL: settings.apiBaseUrl,
@@ -46,6 +47,7 @@ export async function generateFlashcards(
       },
     ],
     stream: true,
+    signal
   });
 
   let accumulatedContent = "";
