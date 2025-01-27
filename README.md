@@ -2,7 +2,8 @@
 
 Generate AI-powered flashcards directly in Obsidian using large language models.
 
-![Demo](https://raw.githubusercontent.com/jacc/obsidian-magic-cards/refs/heads/main/.github/demo.mp4)
+https://github.com/user-attachments/assets/4a4d5cb7-da11-49dd-9cc1-716959de02bd
+
 
 ## Features
 
