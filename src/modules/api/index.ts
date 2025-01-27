@@ -47,8 +47,7 @@ export async function generateFlashcards(
       },
     ],
     stream: true,
-    signal
-  });
+  }, { signal });
 
   let accumulatedContent = "";
 
@@ -77,6 +76,10 @@ export async function generateFlashcards(
       }
     }
   } catch (error) {
+    if (signal?.aborted) {
+      console.log("Request was aborted");
+      return;
+    }
     console.error("Error during stream processing:", error);
     throw error;
   }

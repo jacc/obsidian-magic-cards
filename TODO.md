@@ -1,7 +1,7 @@
 # Magic Cards Roadmap
 
 ## High Priority
-- [ ] Stop generation button
+- [x] Stop generation button
 - [ ] Keyboard shortcuts
 - [ ] Add token counts to generation
 - [ ] Implement generation timer
