@@ -4,7 +4,7 @@
   "description": "Magically generate cards using large language models.",
   "author": "Jack LaFond",
   "authorUrl": "https://github.com/jacc",
-  "version": "1.0.0",
+  "version": "0.0.0-beta",
   "minAppVersion": "1.0.0",
   "isDesktopOnly": true
 }
