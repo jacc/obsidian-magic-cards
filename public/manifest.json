@@ -1,10 +1,10 @@
 {
-    "id": "obsidian-svelte5-template",
-    "name": "Obsidian Svelte 5 Template",
-    "description": "A template for building Obsidian plugins with Svelte 5",
-    "author": "Steven Stavrakis",
-    "authorUrl": "https://github.com/StevenStavrakis",
-    "version": "0.0.1",
-    "minAppVersion": "1.0.0",
-    "isDesktopOnly": true
+  "id": "magic-cards",
+  "name": "Magic Cards",
+  "description": "Magically generate cards.",
+  "author": "Jack LaFond",
+  "authorUrl": "https://github.com/jacc",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "isDesktopOnly": true
 }

@@ -24,6 +24,9 @@ dist-ssr
 *.sw?
 
 # Obsidian config files
+dev-vault/*
 dev-vault/.obsidian/*.json
 dev-vault/.obsidian/plugins/*
 !dev-vault/.obsidian/plugins/hot-reload/
+
+bun.lockb

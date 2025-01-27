@@ -1,5 +1,5 @@
 {
-  "name": "obsidian-svelte5-template",
+  "name": "magic-cards",
   "private": true,
   "version": "0.0.1",
   "description": "A template for building Obsidian plugins with Svelte 5",
@@ -33,6 +33,7 @@
     "@tailwindcss/vite": "^4.0.0-beta.8",
     "@types/node": "^22.10.2",
     "obsidian": "^1.7.2",
+    "openai": "^4.80.1",
     "tailwindcss": "^4.0.0-beta.8"
   }
 }
