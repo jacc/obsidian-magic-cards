@@ -52,6 +52,13 @@
     async function handleGenerate() {
         isGenerating = true;
         generatedCards = [];
+
+        console.debug('Attempting generation with Magic Cards..')
+        console.debug({
+                    apiBaseUrl: selectedProvider,
+                    apiKey: apiKey,
+                    model: selectedModel
+                })
         
         try {
             const fileContent = await app.vault.read(app.workspace.getActiveFile()!);
