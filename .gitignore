@@ -30,3 +30,6 @@ dev-vault/.obsidian/plugins/*
 !dev-vault/.obsidian/plugins/hot-reload/
 
 bun.lockb
+bun.lockb
+dev-vault/test-directory/File 2.md
+dev-vault/test-directory/File.md
